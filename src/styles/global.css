@@ -1,0 +1,176 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap');
+
+:root {
+    /* Indian Military & Defense Theme Colors */
+    --color-indian-army-green: #3A5741; /* Deep Olive Green */
+    --color-indian-navy-blue: #0C1E3C; /* Dark Navy Blue */
+    --color-indian-airforce-grey: #4A4E5C; /* Dark Grey */
+    --color-strategic-dark: #071324; /* Even darker, almost black for backgrounds */
+    --color-saffron-accent: #FF9933; /* Vibrant Saffron */
+    --color-white-bright: #FFFFFF; /* Pure White */
+    --color-ashoka-blue: #000080; /* Dark blue for subtle Ashoka Chakra feel */
+    --color-metallic-gold: #D4AF37; /* For accents */
+    --color-light-neutral: #C0C0C0; /* For secondary text/elements */
+
+
+    /* Mapping to Generic Roles */
+    --color-text-primary: var(--color-white-bright);
+    --color-text-secondary: var(--color-light-neutral);
+    --color-background-dark: var(--color-strategic-dark);
+    --color-background-medium: var(--color-indian-navy-blue);
+    --color-background-light: var(--color-indian-airforce-grey);
+    --color-accent: var(--color-saffron-accent); /* Main accent color */
+    --color-secondary-accent: var(--color-ashoka-blue); /* Secondary accent */
+
+    /* Fonts (kept same as they are versatile) */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-subheading: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+
+    /* Border Radius */
+    --border-radius-sm: 0.5rem;
+    --border-radius-md: 1rem;
+    --border-radius-lg: 1.5rem;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-medium: 0.4s ease-in-out;
+}
+
+/* Accessibility Overrides (Adjusted for new palette) */
+body.high-contrast {
+    --color-text-primary: #FFFF00; /* Yellow */
+    --color-text-secondary: #FFFFFF; /* White */
+    --color-background-dark: #000000; /* Black */
+    --color-background-medium: #333333;
+    --color-background-light: #666666;
+    --color-accent: #00FFFF; /* Cyan */
+    --color-secondary-accent: #FF00FF; /* Magenta */
+}
+
+/* ... rest of global.css remains the same ... */
+
+body.grayscale {
+    filter: grayscale(100%);
+}
+
+body.text-large {
+    font-size: 1.15rem;
+}
+
+body.text-xlarge {
+    font-size: 1.3rem;
+}
+
+body.animations-disabled * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    background-color: var(--color-background-dark);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.8rem; }
+
+section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.button {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: linear-gradient(to right, var(--color-amber), var(--color-deep-orange));
+    color: var(--color-deep-blue);
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+    section { padding: var(--spacing-lg) var(--spacing-sm); }
+    .button { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.3rem; }
+    section { padding: var(--spacing-md) var(--spacing-sm); }
+}
+
+/* Navbar Specific Styles */
+body {
+    padding-top: 70px; /* Adjust based on navbar height */
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none !important; /* Hide desktop nav on small screens */
+    }
+    .hamburger-menu {
+        display: block !important; /* Show hamburger icon */
+    }
+    .mobile-overlay {
+        /* Styles already defined inline in Navbar.jsx */
+    }
+}
